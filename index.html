@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script type="text/javascript">
+      // set the pyodide files URL (packages.json, pyodide.asm.data etc)
+      window.languagePluginUrl = 'pyodide-build/';
+    </script>
+    <script src="pyodide-build/pyodide_dev.js"></script>
+</head>
+
+<body>
+    Pyodide test page <br>
+    Open your browser console to see pyodide output
+    <script type="text/javascript">
+          languagePluginLoader.then(function () {
+              console.log(pyodide.runPython(`
+                  import sys
+                  sys.version
+              `));
+              console.log(pyodide.runPython('print(1 + 2)'));
+          });
+    </script>
+</body>
+</html>
